@@ -25,13 +25,6 @@ const Card = ({ pokemon }) => {
           className="mt-4 rounded-md h-44"
         />
         <h2 className="text-lg font-semibold uppercase">{pokemon.name}</h2>
-        <svg
-          className={`w-4 h-4 transform ${isHovered ? "" : "rotate-180"}`}
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path fillRule="evenodd" d="M10 14l6-6H4l6 6z" />
-        </svg>
       </div>
       {isHovered && (
         <div className="p-4 bg-white flex justify-evenly">
