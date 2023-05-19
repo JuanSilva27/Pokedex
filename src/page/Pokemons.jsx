@@ -15,8 +15,8 @@ export const Pokemons = () => {
           <img src="/loadingPokeball.gif" alt="" />
         ) : pokemons.length ? (
           pokemons.map((pokemon) => (
-            <div key={pokemon.id} className="w-1/2 md:w-1/3">
-              <PokemonCard pokemon={pokemon} />
+            <div key={pokemon.id+1} className="w-1/2 md:w-1/3">
+              <PokemonCard key={pokemon.id} pokemon={pokemon} />
             </div>
           ))
         ) : (

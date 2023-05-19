@@ -37,7 +37,7 @@ const Card = ({ pokemon }) => {
         <div className="p-4 bg-white flex justify-evenly">
           {
             pokemon.types.map((type)=>(
-                <Type {...type}/>
+                <Type key={type.type.name} {...type}/>
             ))
           }
         </div>
