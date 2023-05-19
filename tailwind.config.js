@@ -21,7 +21,7 @@ export default {
         'type-fairy': '#EF70EF',
         'type-ice':"#3DD9FF", 
         'type-dragon':"#4E63D9", 
-        'type-dark':"##4F3F3D", 
+        'type-dark':"#4F3F3D", 
         'type-unknown':"#000000", 
         'type-shadow':"#000000", 
       }
