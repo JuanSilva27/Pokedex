@@ -24,7 +24,7 @@ const Card = ({ pokemon }) => {
           alt="Card Image"
           className="mt-4 rounded-md h-44"
         />
-        <h2 className="text-lg font-semibold">{pokemon.name}</h2>
+        <h2 className="text-lg font-semibold uppercase">{pokemon.name}</h2>
         <svg
           className={`w-4 h-4 transform ${isHovered ? "" : "rotate-180"}`}
           viewBox="0 0 20 20"
