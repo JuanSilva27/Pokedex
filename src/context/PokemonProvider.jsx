@@ -32,12 +32,15 @@ const PokemonProvider = ({children})=>{
     }
 
     const getPokemonById = async (id)=>{
+        setLoading(true)
         try {
             const {data} = await pokemonAxios(`pokemon/${id}`)
             setPokemon(data)
             console.log(pokemon)
         } catch (error) {
             console.log(error)
+        }finally{
+            setLoading(false)
         }
     }
 
