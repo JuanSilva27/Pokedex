@@ -8,6 +8,7 @@ const PokemonContext = createContext()
 const PokemonProvider = ({children})=>{
     const [pokemons, setPokemons] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [pokemon, setPokemon] = useState([])
 
 
     const getAllPokemons = async ()=>{
@@ -23,7 +24,6 @@ const PokemonProvider = ({children})=>{
 
             const result = await Promise.all(promises)
             setPokemons(result)
-            console.log(result)
         } catch (error) {
             console.log(error)
         } finally{
@@ -31,12 +31,23 @@ const PokemonProvider = ({children})=>{
         }
     }
 
+    const getPokemonById = async (id)=>{
+        try {
+            const {data} = await pokemonAxios(`pokemon/${id}`)
+            setPokemon(data)
+            console.log(pokemon)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     return (
         <PokemonContext.Provider value={{
             loading,
             getAllPokemons,
             pokemons,
+            getPokemonById,
+            pokemon
         }}> 
 
 
