@@ -24,10 +24,10 @@ export const Stats = ({ stats }) => {
             key={`${stat.stat.name}-${index}`}
             className="flex items-center mb-2"
           >
-            <div className="w-1/4">
-              <span className="text-sm">{`${stat.stat.name}   ${stat.base_stat}`}</span>
+            <div className="w-[40%]">
+              <span className="text-[20px]  font-semibold uppercase">{`${stat.stat.name} : ${stat.base_stat}`}</span>
             </div>
-            <div className="w-3/4 bg-gray-300 h-4 rounded-full">
+            <div className="w-[60%] bg-gray-300 h-4 rounded-full">
               <div
                 className={`h-full rounded-full ${barColor}`}
                 style={{ width: `${(barWidth / maxStatValue) * 100}%` }}
