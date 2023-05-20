@@ -7,10 +7,9 @@ export const Header = () => {
     <div className=" top-0 left-0 bg-white w-full shadow">
       <div className="container m-auto flex justify-between items-center text-gray-700">
         <a
-          className="pl-8 py-4 text-xl font-bold text-green-600 hover:text-green-600"
-          href="/projects"
+          href="/"
         >
-          Pokedex
+          <img src="pokedexLogo.png" alt="" className="w-1/4 sm:w-1/3" />
         </a>
 
         <div className="hidden md:flex items-center pr-10 text-base font-semibold cursor-pointer">
@@ -24,7 +23,7 @@ export const Header = () => {
           </button>
         </div>
 
-        <button className="block md:hidden py-3 px-4 mx-2 rounded focus:outline-none hover:bg-gray-200 group">
+        {/* <button className="block md:hidden py-3 px-4 mx-2 rounded focus:outline-none hover:bg-gray-200 group">
           <div className="w-5 h-1 bg-gray-600 mb-1"></div>
           <div className="w-5 h-1 bg-gray-600 mb-1"></div>
           <div className="w-5 h-1 bg-gray-600"></div>
@@ -38,7 +37,7 @@ export const Header = () => {
               </Link>
             </div>
           </div>
-        </button>
+        </button> */}
       </div>
     </div>
   );

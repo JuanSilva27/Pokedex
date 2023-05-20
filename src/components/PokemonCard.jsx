@@ -14,7 +14,10 @@ const Card = ({ pokemon }) => {
 
   return (
     <div
-      className="border border-gray-300 rounded-lg shadow-lg"
+      className={`border border-gray-300 rounded-lg shadow-lg transition-all duration-300 ease-in-out ${
+        isHovered ? "transform scale-105" : ""
+      }`}
+
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -22,9 +25,9 @@ const Card = ({ pokemon }) => {
         <img
           src={pokemon.sprites.other.home.front_default}
           alt="Card Image"
-          className="mt-4 rounded-md h-44"
+          className=" rounded-md h-44"
         />
-        <h2 className="text-lg font-semibold uppercase">{pokemon.name}</h2>
+        <h2 className="text-lg font-semibold uppercase mt-1">{pokemon.name}</h2>
       </div>
       {isHovered && (
         <div className="p-4 bg-white flex justify-evenly">
