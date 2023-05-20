@@ -1,9 +1,10 @@
 import React, { useContext, useEffect } from "react";
 import PokemonContext from "../context/pokemonProvider";
 import PokemonCard from "../components/PokemonCard";
+import usePokemon from "../hooks/usePokemon";
 
 export const Pokemons = () => {
-  const { loading, pokemons, getAllPokemons } = useContext(PokemonContext);
+  const { loading, pokemons, getAllPokemons } = usePokemon();
   useEffect(() => {
     getAllPokemons();
   }, []);
