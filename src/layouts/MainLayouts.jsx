@@ -6,7 +6,7 @@ export const MainLayouts = () => {
   return (
     <>
       <Header />
-      <main className="flex-1 p-10">
+      <main className="flex flex-col p-10">
          <Outlet></Outlet>
       </main>
     </>

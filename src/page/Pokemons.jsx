@@ -34,9 +34,11 @@ export const Pokemons = () => {
   return (
     <>
       <div onClick={handleFilterIconClick} >
-      <FilterIcon ></FilterIcon>
+      <FilterIcon/>
       </div>
-      {showFilterBar && <FilterBar onTypeSelection={handleTypeSelection} />}
+      <div className={`${!showFilterBar? "hidden": null}`}>
+        <FilterBar onTypeSelection={handleTypeSelection} />
+      </div>
       <div className={`bg-white p-5 shadow mt-10 rounded-md flex flex-wrap ${loading? "justify-center": null}`}>
         {loading ? (
           <img src="/loadingPokeball.gif" alt="" />
