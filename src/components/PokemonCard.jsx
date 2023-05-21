@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Type } from "./Type";
 import { Link } from "react-router-dom";
+import { DeleteThisIcon } from "./DeleteThisIcon";
 
 const Card = ({ pokemon }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -21,8 +22,10 @@ const Card = ({ pokemon }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
+      <DeleteThisIcon/>
       <div className="flex flex-col items-center justify-between px-4 py-2 bg-gray-100 cursor-pointer p-3">
         <Link to={`/${pokemon.id}`}>
+          
           <img
             src={pokemon.sprites.other.home.front_default}
             alt="Card Image"

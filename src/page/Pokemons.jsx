@@ -62,7 +62,7 @@ export const Pokemons = () => {
               key={pokemon.id + index}
               className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-4 px-2"
             >
-              <DeleteThisIcon/>
+              
               <PokemonCard key={pokemon.id} pokemon={pokemon} />
             </div>
           ))
