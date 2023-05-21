@@ -3,7 +3,7 @@ import usePokemon from "../hooks/usePokemon";
 import { useParams } from "react-router-dom";
 import { Stats } from "../components/Stats";
 import { Type } from "../components/Type";
-import { primerLetraMayus } from "../utils/primerLetraMayus";
+import { primerLetraMayus } from "../helpers/primerLetraMayus";
 import { WeightIcon } from "../components/WeightIcon";
 import { AbilityIcon } from "../components/AbilityIcon";
 
