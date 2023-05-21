@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import PokemonCard from "../components/PokemonCard";
 import usePokemon from "../hooks/usePokemon";
+import { FilterIcon } from "../components/FilterIcon";
 
 export const Pokemons = () => {
   const { loading, pokemons, getAllPokemons } = usePokemon();
@@ -9,7 +10,7 @@ export const Pokemons = () => {
   }, []);
   return (
     <>
-      <h1 className="text-4xl font-black">Pokemons</h1>
+      <FilterIcon></FilterIcon>
       <div className={`bg-white p-5 shadow mt-10 rounded-md flex flex-wrap ${loading? "justify-center": null}`}>
         {loading ? (
           <img src="/loadingPokeball.gif" alt="" />
