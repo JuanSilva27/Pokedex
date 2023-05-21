@@ -16,7 +16,6 @@ export const Pokemons = () => {
       setSelectedTypes([...selectedTypes, selectedType]);
     } else {
       setSelectedTypes(selectedTypes.filter((type) => type !== selectedType));
-      console.log(selectedTypes)
     }
   };
 
@@ -24,14 +23,12 @@ export const Pokemons = () => {
     selectedTypes.length === 0 || pokemon.types.some((type) => selectedTypes.includes(type.type.name)),
     
   );
-  console.log(filteredPokemons, selectedTypes)
   useEffect(() => {
     getAllPokemons();
   }, []);
 
   const handleFilterIconClick = () => {
     setShowFilterBar(!showFilterBar);
-    console.log("hola")
   };
 
   return (
