@@ -1,8 +1,9 @@
 import React from 'react'
 
-export const DeleteThisIcon = ({showDeleteIcon}) => {
+export const DeleteThisIcon = ({showDeleteIcon, pokemonId,pokemons}) => {
     const handleOnClick = ()=>{
-        console.log("holas")
+        pokemons = pokemons.filter((pokemon)=>pokemon.id !== pokemonId)
+        console.log(pokemons)
     }
   return (
     <>
