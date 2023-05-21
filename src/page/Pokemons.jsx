@@ -10,7 +10,7 @@ export const Pokemons = () => {
   const { loading, pokemons, getAllPokemons } = usePokemon();
   const [selectedTypes, setSelectedTypes] = useState([]);
   const [showFilterBar, setShowFilterBar] = useState(false);
-
+  const [showDeleteThisIcon, setShowDeleteThisIcon] = useState(false)
   const handleTypeSelection = (isChecked, selectedType) => {
 
 
@@ -34,13 +34,17 @@ export const Pokemons = () => {
     setShowFilterBar(!showFilterBar);
   };
 
+  const handleDeleteIconClick = () => {
+    setShowDeleteThisIcon(!showDeleteThisIcon);
+  };
+
   return (
     <>
       <div className="flex justify-between">
         <div onClick={handleFilterIconClick}>
           <FilterIcon />
         </div>
-        <div>
+        <div onClick={handleDeleteIconClick}>
           <DeleteIcon />
         </div>
       </div>
@@ -62,8 +66,7 @@ export const Pokemons = () => {
               key={pokemon.id + index}
               className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-4 px-2"
             >
-              
-              <PokemonCard key={pokemon.id} pokemon={pokemon} />
+              <PokemonCard key={pokemon.id} pokemon={pokemon} showDeleteIcon={showDeleteThisIcon} />
             </div>
           ))
         ) : (
