@@ -28,7 +28,7 @@ const Card = ({ pokemon }) => {
             alt="Card Image"
             className=" rounded-md h-44"
           />
-          <h2 className="text-lg font-semibold uppercase mt-1">
+          <h2 className="text-lg font-semibold uppercase mt-1 text-center">
             {pokemon.name}
           </h2>
         </Link>

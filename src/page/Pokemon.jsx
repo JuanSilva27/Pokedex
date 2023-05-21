@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { Stats } from "../components/Stats";
 import { Type } from "../components/Type";
 import { primerLetraMayus } from "../utils/primerLetraMayus";
+import { WeightIcon } from "../components/WeightIcon";
+import { AbilityIcon } from "../components/AbilityIcon";
 
 export const Pokemon = () => {
   const { id } = useParams();
@@ -26,7 +28,7 @@ export const Pokemon = () => {
               className=" rounded-md h-44 absolute"
             />
           </div>
-          <h1 className="text-center font-mono font-semibold text-[60px]">
+          <h1 className="text-center font-mono font-semibold text-[60px] ">
             {primerLetraMayus(pokemon.name)}
           </h1>
           <div className="flex items-center justify-center">
@@ -34,19 +36,25 @@ export const Pokemon = () => {
               <Type key={type.type.name} {...type} />
             ))}
           </div>
-          <div className="mb-4 mt-4 pt-4 flex">
-            <p className="text-gray-600">
-              <span className="font-bold">Weight:</span> {pokemon.weight}
-            </p>
-            <p className="text-gray-600">
-              <span className="font-bold">Abilities:</span>{" "}
+          <div className="mb-4 mt-4 pt-4 flex justify-around">
+            <div className=" flex flex-col">
+              <WeightIcon/>
+              <span className="font-bold text-teal-500 text-center">Weight</span> 
+              <span className="text-center font-semibold font-mono">{pokemon.weight}</span>
+            </div>
+            <div className="flex flex-col">
+              <AbilityIcon/>
+              <span className="font-bold text-pink-500 text-center">Abilities</span>
+              <span className="text-center font-semibold font-mono">
+              {" "}
               {pokemon.abilities
                 .map((ability) => primerLetraMayus(ability.ability.name))
                 .join(", ")}
-            </p>
+              </span>
+            </div>
           </div>
           <div>
-            <h3 className="text-x1 font-semibold mb-2">Stats:</h3>
+            <h3 className="text-2xl font-semibold mb-2 text-center ">Stats</h3>
             <Stats stats={pokemon.stats} />
           </div>
         </div>
