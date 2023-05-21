@@ -19,7 +19,7 @@ export const Pokemons = () => {
   };
 
   const filteredPokemons = pokemons.filter((pokemon) =>
-    selectedTypes.length === 0 || pokemon.types.every((type) => selectedTypes.includes(type.type.name)),
+    selectedTypes.length === 0 || pokemon.types.some((type) => selectedTypes.includes(type.type.name)),
     
   );
   console.log(filteredPokemons, selectedTypes)
