@@ -2,7 +2,7 @@ import React from "react";
 
 export const FilterIcon = () => {
   return (
-    <div>
+    <>
       {" "}
       <svg
         viewBox="0 0 512 512"
@@ -44,6 +44,6 @@ export const FilterIcon = () => {
           d="M368 384 A32 32 0 0 1 336 416 A32 32 0 0 1 304 384 A32 32 0 0 1 368 384 z"
         />
       </svg>
-    </div>
+    </>
   );
 };

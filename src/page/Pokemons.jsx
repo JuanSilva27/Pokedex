@@ -7,6 +7,8 @@ import { FilterBar } from "../components/FilterBar";
 export const Pokemons = () => {
   const { loading, pokemons, getAllPokemons } = usePokemon();
   const [selectedTypes, setSelectedTypes] = useState([]);
+  const [showFilterBar, setShowFilterBar] = useState(false);
+
   const handleTypeSelection = (isChecked ,selectedType) => {
     // Verificar si el tipo ya está seleccionado
     
@@ -26,10 +28,18 @@ export const Pokemons = () => {
   useEffect(() => {
     getAllPokemons();
   }, []);
+
+  const handleFilterIconClick = () => {
+    setShowFilterBar(!showFilterBar);
+    console.log("hola")
+  };
+
   return (
     <>
-      <FilterIcon></FilterIcon>
-      <FilterBar onTypeSelection={handleTypeSelection}/>
+      <div onClick={handleFilterIconClick} >
+      <FilterIcon ></FilterIcon>
+      </div>
+      {showFilterBar && <FilterBar onTypeSelection={handleTypeSelection} />}
       <div className={`bg-white p-5 shadow mt-10 rounded-md flex flex-wrap ${loading? "justify-center": null}`}>
         {loading ? (
           <img src="/loadingPokeball.gif" alt="" />
