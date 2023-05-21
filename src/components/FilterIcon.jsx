@@ -9,6 +9,8 @@ export const FilterIcon = () => {
         fill="currentColor"
         height="2.5em"
         width="2.5em"
+        className="cursor-pointer"
+
         
       >
         <path
