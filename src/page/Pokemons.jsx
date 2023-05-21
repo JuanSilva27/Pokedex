@@ -4,6 +4,7 @@ import usePokemon from "../hooks/usePokemon";
 import { FilterIcon } from "../components/FilterIcon";
 import { FilterBar } from "../components/FilterBar";
 import { DeleteIcon } from "../components/DeleteIcon";
+import { DeleteThisIcon } from "../components/DeleteThisIcon";
 
 export const Pokemons = () => {
   const { loading, pokemons, getAllPokemons } = usePokemon();
@@ -11,7 +12,7 @@ export const Pokemons = () => {
   const [showFilterBar, setShowFilterBar] = useState(false);
 
   const handleTypeSelection = (isChecked, selectedType) => {
-    // Verificar si el tipo ya está seleccionado
+
 
     if (isChecked) {
       setSelectedTypes([...selectedTypes, selectedType]);
@@ -43,9 +44,11 @@ export const Pokemons = () => {
           <DeleteIcon />
         </div>
       </div>
+      
       <div className={`${!showFilterBar ? "hidden" : null}`}>
         <FilterBar onTypeSelection={handleTypeSelection} />
       </div>
+
       <div
         className={`bg-white p-5 shadow mt-10 rounded-md flex flex-wrap ${
           loading ? "justify-center" : null
@@ -59,6 +62,7 @@ export const Pokemons = () => {
               key={pokemon.id + index}
               className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-4 px-2"
             >
+              <DeleteThisIcon/>
               <PokemonCard key={pokemon.id} pokemon={pokemon} />
             </div>
           ))
