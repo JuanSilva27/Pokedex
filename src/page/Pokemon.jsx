@@ -20,10 +20,12 @@ export const Pokemon = () => {
       {loading ? (
         <p>Loading...</p>
       ) : pokemon && pokemon.stats ? (
+        <>
+        
         <div className="bg-white rounded-lg shadow-lg p-8 relative mt-32">
           <div className="flex items-center justify-center mb-4 relative bottom-[80px] ">
             <img
-              src={pokemon.sprites.other.home.front_default}
+              src={pokemon.sprites.other.home.front_default? pokemon.sprites.other.home.front_default : pokemon.sprites.front_default }
               alt="Pokemon Sprite"
               className=" rounded-md h-44 absolute"
             />
@@ -58,6 +60,7 @@ export const Pokemon = () => {
             <Stats stats={pokemon.stats} />
           </div>
         </div>
+        </>
       ) : (
         <p>Loading...</p>
       )}
