@@ -47,7 +47,6 @@ export const FilterBar = ({
     setSearchValue("");
   };
 
-  console.log(searchValue);
   return (
     <div className="container flex flex-col items-center">
       <form action="" onSubmit={handleSubmit}>
