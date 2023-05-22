@@ -4,7 +4,6 @@ import usePokemon from "../hooks/usePokemon";
 import { FilterIcon } from "../components/FilterIcon";
 import { FilterBar } from "../components/FilterBar";
 import { DeleteIcon } from "../components/DeleteIcon";
-import { DeleteThisIcon } from "../components/DeleteThisIcon";
 
 export const Pokemons = () => {
   const { loading, pokemons, getAllPokemons } = usePokemon();
@@ -48,18 +47,28 @@ export const Pokemons = () => {
 
   return (
     <>
-      <div className="flex justify-between">
-        <div onClick={handleFilterIconClick}>
-          <FilterIcon />
-        </div>
-        <div onClick={handleDeleteIconClick}>
-          <DeleteIcon />
-        </div>
-      </div>
+      {loading ? (
+        null
+      ) : filteredPokemons.length > 0 ? (
+        <>
+          <div className="flex justify-between">
+            <div onClick={handleFilterIconClick}>
+              <FilterIcon />
+            </div>
+            <div onClick={handleDeleteIconClick}>
+              <DeleteIcon />
+            </div>
+          </div>
 
-      <div className={`${!showFilterBar ? "hidden" : null}`}>
-        <FilterBar onTypeSelection={handleTypeSelection} />
-      </div>
+          <div className={`${!showFilterBar ? "hidden" : null}`}>
+            <FilterBar
+              onTypeSelection={handleTypeSelection}
+              updateFilteredPokemons={handleDeletePokemons}
+              pokemons={ filteredPokemons}
+            />
+          </div>
+        </>
+      ): null}
 
       <div
         className={`bg-white p-5 shadow mt-10 rounded-md flex flex-wrap ${
