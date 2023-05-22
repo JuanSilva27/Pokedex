@@ -7,10 +7,16 @@ export const FilterBar = ({
   pokemons,
 }) => {
   const [searchValue, setSearchValue] = useState("");
+  const [pokemonResp, setPokemonResp] = useState(pokemons);
 
-  console.log(pokemons)
   const handleSearchInputChange = (e) => {
     const search = e.target.value;
+    /* updateFilteredPokemons(
+      pokemonResp.filter((pokemon) =>
+        pokemon.name.includes(search.toLocaleLowerCase())
+      )
+    ); */
+    console.log(pokemonResp);
     setSearchValue(search);
   };
 
@@ -20,13 +26,18 @@ export const FilterBar = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    updateFilteredPokemons(
-      pokemons.filter((pokemon) =>
-        pokemon.name.includes(searchValue.toLocaleLowerCase())
-      )
-    );
-    console.log(pokemons);
-    setSearchValue("")
+    const pokemonFiltereds = pokemonResp.filter((pokemon) =>
+      pokemon.name.includes(searchValue.toLocaleLowerCase())
+    )
+    
+    if(pokemonFiltereds.length>0){
+      updateFilteredPokemons(pokemonFiltereds)
+    } else {
+      updateFilteredPokemons(pokemonResp)
+    }
+
+    setSearchValue("");
+    console.log(pokemonFiltereds);
   };
 
   console.log(searchValue);
@@ -41,10 +52,7 @@ export const FilterBar = ({
             onChange={handleSearchInputChange}
             value={searchValue}
           />
-          <button
-            className="bg-blue-400 h-12 w-20 rounded-r-2xl"
-            type="submit"
-          >
+          <button className="bg-blue-400 h-12 w-20 rounded-r-2xl" type="submit">
             Buscar
           </button>
         </div>

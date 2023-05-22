@@ -64,7 +64,7 @@ export const Pokemons = () => {
             <FilterBar
               onTypeSelection={handleTypeSelection}
               updateFilteredPokemons={handleDeletePokemons}
-              pokemons={ filteredPokemons}
+              pokemons={filteredPokemons}
             />
           </div>
         </>
