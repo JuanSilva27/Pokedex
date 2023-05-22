@@ -10,32 +10,40 @@ export const Pokemons = () => {
   const { loading, pokemons, getAllPokemons } = usePokemon();
   const [selectedTypes, setSelectedTypes] = useState([]);
   const [showFilterBar, setShowFilterBar] = useState(false);
-  const [showDeleteThisIcon, setShowDeleteThisIcon] = useState(false)
+  const [showDeleteThisIcon, setShowDeleteThisIcon] = useState(false);
+  const [filteredPokemons, setFilteredPokemons] = useState([]);
+
+  useEffect(() => {
+    setFilteredPokemons(
+      pokemons.filter(
+        (pokemon) =>
+          selectedTypes.length === 0 ||
+          pokemon.types.some((type) => selectedTypes.includes(type.type.name))
+      )
+    );
+  }, [pokemons, selectedTypes]);
+
+  useEffect(() => {
+    getAllPokemons();
+  }, []);
+
   const handleTypeSelection = (isChecked, selectedType) => {
-
-
     if (isChecked) {
       setSelectedTypes([...selectedTypes, selectedType]);
     } else {
       setSelectedTypes(selectedTypes.filter((type) => type !== selectedType));
     }
   };
-
-  const filteredPokemons = pokemons.filter(
-    (pokemon) =>
-      selectedTypes.length === 0 ||
-      pokemon.types.some((type) => selectedTypes.includes(type.type.name))
-  );
-  useEffect(() => {
-    getAllPokemons();
-  }, []);
-
   const handleFilterIconClick = () => {
     setShowFilterBar(!showFilterBar);
   };
 
   const handleDeleteIconClick = () => {
     setShowDeleteThisIcon(!showDeleteThisIcon);
+  };
+
+  const handleChildComponentChange = (newFilteredPokemons) => {
+    setFilteredPokemons(newFilteredPokemons);
   };
 
   return (
@@ -48,7 +56,7 @@ export const Pokemons = () => {
           <DeleteIcon />
         </div>
       </div>
-      
+
       <div className={`${!showFilterBar ? "hidden" : null}`}>
         <FilterBar onTypeSelection={handleTypeSelection} />
       </div>
@@ -66,7 +74,13 @@ export const Pokemons = () => {
               key={pokemon.id + index}
               className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-4 px-2"
             >
-              <PokemonCard key={pokemon.id} pokemon={pokemon} showDeleteIcon={showDeleteThisIcon} filteredPokemons={filteredPokemons} />
+              <PokemonCard
+                key={pokemon.id}
+                pokemon={pokemon}
+                showDeleteIcon={showDeleteThisIcon}
+                filteredPokemons={filteredPokemons}
+                updateFilteredPokemons={handleChildComponentChange}
+              />
             </div>
           ))
         ) : (

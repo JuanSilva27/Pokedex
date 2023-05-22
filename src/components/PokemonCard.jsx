@@ -3,7 +3,7 @@ import { Type } from "./Type";
 import { Link } from "react-router-dom";
 import { DeleteThisIcon } from "./DeleteThisIcon";
 
-const Card = ({ pokemon, showDeleteIcon, filteredPokemons }) => {
+const Card = ({ pokemon, showDeleteIcon, filteredPokemons, updateFilteredPokemons }) => {
   
   const [isHovered, setIsHovered] = useState(false);
 
@@ -23,7 +23,7 @@ const Card = ({ pokemon, showDeleteIcon, filteredPokemons }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <DeleteThisIcon showDeleteIcon={showDeleteIcon} pokemonId={pokemon.id} pokemons={filteredPokemons}/>
+      <DeleteThisIcon showDeleteIcon={showDeleteIcon} pokemonId={pokemon.id} pokemons={filteredPokemons} updateFilteredPokemons={updateFilteredPokemons}/>
       <div className="flex flex-col items-center justify-between px-4 py-2 bg-gray-100 cursor-pointer p-3">
         <Link to={`/${pokemon.id}`}>
           
