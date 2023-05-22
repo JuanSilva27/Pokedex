@@ -52,17 +52,21 @@ export const FilterBar = ({
   return (
     <div className="container flex flex-col items-center">
       <form action="" onSubmit={handleSubmit}>
-        <div className="m-4">
+        <div className="m-4 flex flex-col items-center">
+          <label htmlFor="searchBar" className="m-5 uppercase font-bold"> Filtrar Pokemon:</label>
+          <div>
           <input
             type="text"
-            placeholder="Ingrese un Nombre"
+            placeholder="Ingrese un Nombre o Habilidad"
             className="w-64 h-12 rounded-l-2xl border-none font-semibold text-[16px]"
             onChange={handleSearchInputChange}
             value={searchValue}
+            name="searchBar"
           />
           <button className="bg-blue-400 h-12 w-20 rounded-r-2xl" type="submit">
             Buscar
           </button>
+          </div>
         </div>
       </form>
       <span className="md:w-1/12 text-center font-bold text-xl">Tipos :</span>
