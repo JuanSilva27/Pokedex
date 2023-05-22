@@ -63,7 +63,8 @@ export const FilterBar = ({
               onChange={handleSearchInputChange}
               value={searchValue}
               name="searchBar"
-            />
+              id="searchBar"
+              />
             <button
               className="bg-blue-400 h-12 w-20 rounded-r-2xl"
               type="submit"
