@@ -16,7 +16,6 @@ export const FilterBar = ({
         pokemon.name.includes(search.toLocaleLowerCase())
       )
     ); */
-    console.log(pokemonResp);
     setSearchValue(search);
   };
 
@@ -28,24 +27,24 @@ export const FilterBar = ({
     e.preventDefault();
     const pokemonFilteredsByName = pokemonResp.filter((pokemon) =>
       pokemon.name.includes(searchValue.toLocaleLowerCase())
-    )
+    );
     const pokemonFilteredsByAbility = pokemonResp.filter((pokemon) =>
-      pokemon.abilities.some((ability)=>ability.ability.name === searchValue.toLocaleLowerCase())
-    )
-    
-    console.log(pokemonFilteredsByAbility)
+      pokemon.abilities.some(
+        (ability) => ability.ability.name === searchValue.toLocaleLowerCase()
+      )
+    );
 
-    const pokemonFiltereds = pokemonFilteredsByName.concat(pokemonFilteredsByAbility)
+    const pokemonFiltereds = pokemonFilteredsByName.concat(
+      pokemonFilteredsByAbility
+    );
 
-
-    if(pokemonFiltereds.length>0){
-      updateFilteredPokemons(pokemonFiltereds)
+    if (pokemonFiltereds.length > 0) {
+      updateFilteredPokemons(pokemonFiltereds);
     } else {
-      updateFilteredPokemons(pokemonResp)
+      updateFilteredPokemons(pokemonResp);
     }
 
     setSearchValue("");
-    console.log(pokemonFiltereds);
   };
 
   console.log(searchValue);
@@ -53,19 +52,25 @@ export const FilterBar = ({
     <div className="container flex flex-col items-center">
       <form action="" onSubmit={handleSubmit}>
         <div className="m-4 flex flex-col items-center">
-          <label htmlFor="searchBar" className="m-5 uppercase font-bold"> Filtrar Pokemon:</label>
+          <label htmlFor="searchBar" className="m-5 uppercase font-bold">
+            {" "}
+            Filtrar Pokemon:
+          </label>
           <div>
-          <input
-            type="text"
-            placeholder="Ingrese un Nombre o Habilidad"
-            className="w-64 h-12 rounded-l-2xl border-none font-semibold text-[16px]"
-            onChange={handleSearchInputChange}
-            value={searchValue}
-            name="searchBar"
-          />
-          <button className="bg-blue-400 h-12 w-20 rounded-r-2xl" type="submit">
-            Buscar
-          </button>
+            <input
+              type="text"
+              placeholder="Ingrese un Nombre o Habilidad"
+              className="w-64 h-12 rounded-l-2xl border-none font-semibold text-[16px]"
+              onChange={handleSearchInputChange}
+              value={searchValue}
+              name="searchBar"
+            />
+            <button
+              className="bg-blue-400 h-12 w-20 rounded-r-2xl"
+              type="submit"
+            >
+              Buscar
+            </button>
           </div>
         </div>
       </form>

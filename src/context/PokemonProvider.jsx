@@ -37,7 +37,6 @@ const PokemonProvider = ({children})=>{
             setLoading(true)
             const {data} = await pokemonAxios(`pokemon/${id}`)
             setPokemon(data)
-            console.log(pokemon)
         } catch (error) {
             console.log(error)
         }finally{
