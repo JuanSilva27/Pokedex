@@ -26,6 +26,7 @@ export const FilterBar = ({
       )
     );
     console.log(pokemons);
+    setSearchValue("")
   };
 
   console.log(searchValue);
@@ -35,9 +36,10 @@ export const FilterBar = ({
         <div className="m-4">
           <input
             type="text"
-            placeholder="Ingrese un el Nombre o Habilidad"
-            className="w-64 h-12 rounded-l-2xl border-none"
+            placeholder="Ingrese un Nombre"
+            className="w-64 h-12 rounded-l-2xl border-none font-semibold text-[16px]"
             onChange={handleSearchInputChange}
+            value={searchValue}
           />
           <button
             className="bg-blue-400 h-12 w-20 rounded-r-2xl"
