@@ -18,7 +18,7 @@ export const Pokemon = () => {
   return (
     <div className=" mt-10 mx-auto p-4 md:w-1/2 w-11/12  ">
       {loading ? (
-        <p>Loading...</p>
+        <img src="/loadingSlowpoke.gif" alt="" />
       ) : pokemon && pokemon.stats ? (
         <>
         
