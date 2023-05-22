@@ -15,10 +15,7 @@ function App() {
             <Route path="/" element={<MainLayouts/>}>
               <Route index element={<Pokemons />}/>
               <Route path=":id" element={<Pokemon />} />
-
-              {/*Rutas no encontrada*/}
               <Route path="*" element={<NotFoundPage/>}/>
-
             </Route>
           </Routes>
         </PokemonProvider>
