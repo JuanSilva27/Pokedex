@@ -28,7 +28,7 @@ const Card = ({ pokemon, showDeleteIcon, filteredPokemons, updateFilteredPokemon
         <Link to={`/${pokemon.id}`}>
           
           <img
-            src={pokemon.sprites.other.home.front_default}
+            src={pokemon.sprites.other.home.front_default || pokemon.sprites.front_default || "/noPoke.png"}
             alt="Card Image"
             className=" rounded-md h-44"
           />

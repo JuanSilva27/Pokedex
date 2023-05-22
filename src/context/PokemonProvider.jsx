@@ -14,7 +14,7 @@ const PokemonProvider = ({children})=>{
     const getAllPokemons = async ()=>{
         setLoading(true)
         try {
-            const {data} =await pokemonAxios.get("pokemon?limit=200&offset=0")
+            const {data} =await pokemonAxios.get("pokemon?limit=1281&offset=0")
             const {results} = data
             
             const promises = results.map(async(pokemon)=>{
