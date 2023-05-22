@@ -42,7 +42,7 @@ export const Pokemons = () => {
     setShowDeleteThisIcon(!showDeleteThisIcon);
   };
 
-  const handleChildComponentChange = (newFilteredPokemons) => {
+  const handleDeletePokemons = (newFilteredPokemons) => {
     setFilteredPokemons(newFilteredPokemons);
   };
 
@@ -79,7 +79,7 @@ export const Pokemons = () => {
                 pokemon={pokemon}
                 showDeleteIcon={showDeleteThisIcon}
                 filteredPokemons={filteredPokemons}
-                updateFilteredPokemons={handleChildComponentChange}
+                updateFilteredPokemons={handleDeletePokemons}
               />
             </div>
           ))
