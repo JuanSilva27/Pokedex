@@ -26,10 +26,18 @@ export const FilterBar = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const pokemonFiltereds = pokemonResp.filter((pokemon) =>
+    const pokemonFilteredsByName = pokemonResp.filter((pokemon) =>
       pokemon.name.includes(searchValue.toLocaleLowerCase())
     )
+    const pokemonFilteredsByAbility = pokemonResp.filter((pokemon) =>
+      pokemon.abilities.some((ability)=>ability.ability.name === searchValue.toLocaleLowerCase())
+    )
     
+    console.log(pokemonFilteredsByAbility)
+
+    const pokemonFiltereds = pokemonFilteredsByName.concat(pokemonFilteredsByAbility)
+
+
     if(pokemonFiltereds.length>0){
       updateFilteredPokemons(pokemonFiltereds)
     } else {

@@ -16,7 +16,7 @@ export const Pokemon = () => {
   }, [id]);
 
   return (
-    <div className=" mt-10 mx-auto p-4  max-w-2xl">
+    <div className=" mt-10 mx-auto p-4 md:w-1/2 w-11/12  ">
       {loading ? (
         <p>Loading...</p>
       ) : pokemon && pokemon.stats ? (
