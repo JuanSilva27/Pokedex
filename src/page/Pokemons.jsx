@@ -47,9 +47,7 @@ export const Pokemons = () => {
 
   return (
     <>
-      {loading ? (
-        null
-      ) : filteredPokemons.length > 0 ? (
+      {loading ? null : filteredPokemons.length > 0 ? (
         <>
           <div className="flex justify-between">
             <div onClick={handleFilterIconClick}>
@@ -68,12 +66,10 @@ export const Pokemons = () => {
             />
           </div>
         </>
-      ): null}
+      ) : null}
 
       <div
-        className={`bg-white p-5 shadow mt-10 rounded-md flex flex-wrap ${
-          loading ? "justify-center" : null
-        }`}
+        className={`bg-white p-5 shadow mt-10 rounded-md flex flex-wrap justify-center`}
       >
         {loading ? (
           <img src="/loadingPokeball.gif" alt="" />
@@ -93,7 +89,7 @@ export const Pokemons = () => {
             </div>
           ))
         ) : (
-          <p className="bg-red-700">no hay pokemons </p>
+          <img src="/loadingPokeball.gif" alt="" />
         )}
       </div>
     </>
