@@ -71,9 +71,8 @@ export const Pokemons = () => {
       <div
         className={`bg-white p-5 shadow mt-10 rounded-md flex flex-wrap justify-center`}
       >
-        {loading ? (
-          <img src="/loadingPokeball.gif" alt="" />
-        ) : filteredPokemons.length > 0 ? (
+        {!loading && filteredPokemons.length >0 ? (
+          
           filteredPokemons.map((pokemon, index) => (
             <div
               key={pokemon.id + index}
@@ -86,11 +85,10 @@ export const Pokemons = () => {
                 filteredPokemons={filteredPokemons}
                 updateFilteredPokemons={handleDeletePokemons}
               />
-            </div>
-          ))
+            </div>))
         ) : (
           <img src="/loadingPokeball.gif" alt="" />
-        )}
+        ) }
       </div>
     </>
   );
